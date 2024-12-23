@@ -20,14 +20,14 @@ To set up and run the LMS project, follow these steps:
 ### Installation
 1. Clone the repository:
     ```bash
-    git clone https://github.com/yourusername/LMS.git
+    git clone https://github.com/minkxx/LMS.git
     cd LMS
     ```
 
 2. Create a virtual environment and activate it:
     ```bash
     python -m venv venv
-    venv/Scripts/activate # On windows
+    venv/Scripts/activate # To activate venv On windows
 
     source venv/bin/activate  # On Linux/Mac 
     ```
