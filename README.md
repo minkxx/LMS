@@ -59,6 +59,14 @@ To set up and run the LMS project, follow these steps:
 ### Note
 Ensure that the MySQL server is running and the database credentials in the `.env` file are correct before running the project.
 
+## Acknowledgements
+
+I would like to express my sincere gratitude to my teacher, [Mr. Tarun Kumar Sharma](https://github.com/ownway08), for their invaluable guidance and support throughout this project. Your expertise and encouragement have been instrumental in the successful completion of this Library Management System.
+
+I would also like to thank my teammates, Shrestho Nath, and Papiya R.Das, for their hard work, dedication, and collaboration. This project would not have been possible without your contributions and teamwork.
+
+Thank you all for your support and assistance in making this project a success.
+
 ## Contributing
 We welcome contributions to improve the LMS. Please fork the repository and create a pull request with your changes.
 
