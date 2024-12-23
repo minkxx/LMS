@@ -2,11 +2,27 @@ import time
 from prettytable import PrettyTable
 from datetime import datetime
 
-from database import add_user_db, add_book_db, get_books
-from database import (get_gender_id, get_role_id, get_genre_id, get_genre_name, get_role_name, issue_book, 
-                      get_book_id, return_book, get_issued_books, get_user_from_id, get_book_from_id, 
-                      update_book_db, update_user_db)
-from database import get_users, get_user
+from database import (
+    get_users, 
+    get_user,
+    add_user_db, 
+    add_book_db, 
+    get_books,
+    get_gender_id, 
+    get_role_id, 
+    get_genre_id, 
+    get_genre_name, 
+    get_role_name, 
+    issue_book, 
+    get_book_id, 
+    return_book, 
+    get_issued_books, 
+    get_user_from_id, 
+    get_book_from_id, 
+    update_book_db, 
+    update_user_db, 
+    get_genres
+    )
 from utils import verify_password, clear_screen
 
 
@@ -115,6 +131,17 @@ def display_books_cli():
     print(table)
 
 
+def show_genres_cli():
+    genres = get_genres()
+
+    table = PrettyTable()
+    table.field_names = ["ID", "Genre"]
+
+    for genre in genres:
+        table.add_row([genre[0], genre[1]])
+
+    print(table)
+
 def books_menu():
     print("          Books Menu            ")
     print("          ----------            ")
@@ -122,7 +149,8 @@ def books_menu():
         print("1. Add Book")
         print("2. Update Book")
         print("3. Display Books")
-        print("4. Back")
+        print("4. Show Genres")
+        print("5. Back")
 
         choice = input("Enter your choice : ")
 
@@ -133,6 +161,8 @@ def books_menu():
         elif choice == "3":
             display_books_cli()
         elif choice == "4":
+            show_genres_cli()
+        elif choice == "5":
             break
         else:
             print("Invalid choice")

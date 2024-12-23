@@ -290,6 +290,22 @@ def get_genre_name(genre_id):
 
     if data:
         return data[1]
+    
+def get_genres():
+    cnn = get_connection()
+    cur = cnn.cursor()
+
+    QUERY = "SELECT * FROM genre order by id"
+
+    try:
+        cur.execute(QUERY)
+    except Exception as er:
+        print(f"[ERROR] - {er}")
+
+    data = cur.fetchall()
+
+    if data:
+        return data
 
 
 ## Events functions
@@ -343,4 +359,3 @@ def get_issued_books():
 
     if data:
         return data
-    
