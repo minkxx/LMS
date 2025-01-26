@@ -1,6 +1,7 @@
 import time
 from prettytable import PrettyTable
 from datetime import datetime
+import os
 
 from database import (
     get_users, 
@@ -25,6 +26,9 @@ from database import (
     )
 from utils import verify_password, clear_screen
 
+if not os.path.exists(".env"):
+    print("Config file not found!")
+    exit(1)
 
 def add_user_cli(role="Student"):
     firstname = input("Enter your first name : ")
