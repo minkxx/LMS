@@ -18,12 +18,12 @@ CREATE TABLE IF NOT EXISTS `Genre` (
 CREATE TABLE IF NOT EXISTS `Users` (
 	`id` int AUTO_INCREMENT NOT NULL,
 	`firstname` varchar(255) NOT NULL,
-	`surname` varchar(255) NULL,
+	`surname` varchar(255),
 	`email` varchar(255) NOT NULL UNIQUE,
-	`mobile_phone` varchar(255) NULL UNIQUE,
-	`password_hash` varchar(255) NULL,
+	`mobile_phone` varchar(255) UNIQUE,
+	`password_hash` varchar(255),
 	`gender_id` int NOT NULL,
-	`address` varchar(255) NULL,
+	`address` varchar(255),
 	`role_id` int NOT NULL,
 	PRIMARY KEY (`id`)
 );
@@ -32,7 +32,7 @@ CREATE TABLE IF NOT EXISTS `Books` (
 	`title` varchar(255) NOT NULL,
 	`author` varchar(255) NOT NULL,
 	`genre_id` int NOT NULL,
-	`description` varchar(255) NULL,
+	`description` varchar(255),
 	`total_amount` int NOT NULL,
 	PRIMARY KEY (`id`)
 );

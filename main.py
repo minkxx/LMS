@@ -66,15 +66,18 @@ def update_user_cli():
 def display_users_cli():
     users = get_users()
 
-    table = PrettyTable()
-    table.field_names = ["ID", "Name", "Email", "Role"]
+    if users:
+        table = PrettyTable()
+        table.field_names = ["ID", "Name", "Email", "Role"]
 
-    for user in users:
-        table.add_row(
-            [user[0], f"{user[1]} {user[2]}", user[3], get_role_name(user[8])]
-        )
+        for user in users:
+            table.add_row(
+                [user[0], f"{user[1]} {user[2]}", user[3], get_role_name(user[8])]
+            )
 
-    print(table)
+        print(table)
+    else:
+        print("[INFO] - No users found")
 
 
 def users_menu():
@@ -126,25 +129,32 @@ def update_book_cli():
 def display_books_cli():
     books = get_books()
 
-    table = PrettyTable()
-    table.field_names = ["ID","Title","Author","Genre","Description","Total Amount"]
+    if books:
 
-    for book in books:
-        table.add_row([book[0], book[1], book[2], get_genre_name(book[3]), book[4], book[5]])
+        table = PrettyTable()
+        table.field_names = ["ID","Title","Author","Genre","Description","Total Amount"]
 
-    print(table)
+        for book in books:
+            table.add_row([book[0], book[1], book[2], get_genre_name(book[3]), book[4], book[5]])
+
+        print(table)
+    else:
+        print("[INFO] - No books found")
 
 
 def show_genres_cli():
     genres = get_genres()
 
-    table = PrettyTable()
-    table.field_names = ["ID", "Genre"]
+    if genres:
+        table = PrettyTable()
+        table.field_names = ["ID", "Genre"]
 
-    for genre in genres:
-        table.add_row([genre[0], genre[1]])
+        for genre in genres:
+            table.add_row([genre[0], genre[1]])
 
-    print(table)
+        print(table)
+    else:
+        print("[INFO] - No genres found")
 
 def books_menu():
     print("          Books Menu            ")
@@ -201,14 +211,17 @@ def return_book_cli():
 def get_issued_books_cli():
     books = get_issued_books()
 
-    table = PrettyTable()
-    table.field_names = ["ID", "Book", "User", "Issued Date", "Return Date"]
+    if books:
+        table = PrettyTable()
+        table.field_names = ["ID", "Book", "User", "Issued Date", "Return Date"]
 
-    for book in books:
-        user = get_user_from_id(book[2])
-        table.add_row([book[0],get_book_from_id(book[1])[1],f"{user[1]} {user[2]}",book[3],book[4],])
+        for book in books:
+            user = get_user_from_id(book[2])
+            table.add_row([book[0],get_book_from_id(book[1])[1],f"{user[1]} {user[2]}",book[3],book[4],])
 
-    print(table)
+        print(table)
+    else:
+        print("[INFO] - No transaction found")
 
 
 def issue_return_menu():
