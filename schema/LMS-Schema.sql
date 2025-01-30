@@ -41,7 +41,7 @@ CREATE TABLE IF NOT EXISTS `Events` (
 	`book_id` int NOT NULL,
 	`user_id` int NOT NULL,
 	`issue_date` date NOT NULL,
-	`return_date` date NOT NULL,
+	`return_date` date DEFAULT NULL,
 	PRIMARY KEY (`id`)
 );
 ALTER TABLE `Users` ADD CONSTRAINT `Users_fk6` FOREIGN KEY (`gender_id`) REFERENCES `Gender`(`id`);
